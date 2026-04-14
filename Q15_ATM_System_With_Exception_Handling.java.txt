@@ -1,0 +1,28 @@
+public class Q15_ATM_System_With_Exception_Handling {
+    double balance = 1000;
+
+    void withdraw(double amount) {
+        try {
+            if (amount > balance)
+                throw new Exception("Insufficient Balance");
+
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    public static void main(String[] args) {
+        Q15_ATM_System_With_Exception_Handling atm =
+                new Q15_ATM_System_With_Exception_Handling();
+
+        atm.deposit(500);
+        atm.withdraw(2000);
+    }
+}
